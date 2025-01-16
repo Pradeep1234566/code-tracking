@@ -1,4 +1,3 @@
-
 import 'package:coffee/widgets/coffe.dart';
 import 'package:flutter/material.dart';
 
@@ -97,14 +96,14 @@ class HomePage extends StatelessWidget {
                   // Cappuccino Section
                   buildCoffeeSection('Cappuccino', [
                     {'image': 'assests/images/C1.jpg', 'price': '\$4.00'},
-                    {'image': 'assests/images/C1.jpg', 'price': '\$4.50'},
-                    {'image': 'assests/images/C1.jpg', 'price': '\$5.00'},
+                    {'image': 'assests/images/C2.jpg', 'price': '\$4.50'},
+                    {'image': 'assests/images/C3.jpg', 'price': '\$5.00'},
                   ]),
                   // Latte Section
                   buildCoffeeSection('Latte', [
-                    {'image': 'assests/images/C1.jpg', 'price': '\$4.50'},
-                    {'image': 'assests/images/C1.jpg', 'price': '\$5.00'},
-                    {'image': 'assests/images/C1.jpg', 'price': '\$5.50'},
+                    {'image': 'assests/images/L1.jpg', 'price': '\$4.50'},
+                    {'image': 'assests/images/L2.jpg', 'price': '\$5.00'},
+                    {'image': 'assests/images/L3.jpg', 'price': '\$5.50'},
                   ]),
                 ],
               ),

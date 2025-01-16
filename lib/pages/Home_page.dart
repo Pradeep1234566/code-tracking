@@ -67,26 +67,53 @@ class HomePage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            TextField(
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.grey[800],
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.grey[400],
-                ),
-                hintText: 'Find your Coffee',
-                hintStyle: TextStyle(
-                  color: Colors.grey[400],
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none,
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 30),
+              child: TextField(
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.grey[900],
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.grey[700],
+                  ),
+                  hintText: 'Find your Coffee...',
+                  hintStyle: TextStyle(
+                    color: Colors.grey[700],
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide.none,
+                  ),
                 ),
               ),
             )
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shop),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: '',
+          ),
+        ],
       ),
     );
   }

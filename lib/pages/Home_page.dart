@@ -1,8 +1,9 @@
-import 'package:coffee/pages/cap.dart';
+
+import 'package:coffee/widgets/coffe.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -89,101 +90,23 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 20),
             Expanded(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            'Cappuccino',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(height: 10),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => Cap()),
-                              );
-                            },
-                            child: Container(
-                              width: 100,
-                              height: 100,
-                              color: Colors.grey[800],
-                              child: Center(
-                                child: Text(
-                                  'Image',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            'Espresso',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(height: 10),
-                          GestureDetector(
-                            onTap: () {
-                              // Handle tap to display image
-                            },
-                            child: Container(
-                              width: 100,
-                              height: 100,
-                              color: Colors.grey[800],
-                              child: Center(
-                                child: Text(
-                                  'Image',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Text(
-                            'Latte',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          SizedBox(height: 10),
-                          GestureDetector(
-                            onTap: () {
-                              
-                            },
-                            child: Container(
-                              width: 100,
-                              height: 100,
-                              color: Colors.grey[800],
-                              child: Center(
-                                child: Text(
-                                  'Image',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    // Add more columns as needed
-                  ],
-                ),
+              child: ListView(
+                children: [
+                  // Cappuccino Section
+                  buildCoffeeSection('Cappuccino', [
+                    {'image': 'assests/images/C1.jpg', 'price': '\$4.00'},
+                    {'image': 'assests/images/C1.jpg', 'price': '\$4.50'},
+                    {'image': 'assests/images/C1.jpg', 'price': '\$5.00'},
+                  ]),
+                  // Latte Section
+                  buildCoffeeSection('Latte', [
+                    {'image': 'assests/images/C1.jpg', 'price': '\$4.50'},
+                    {'image': 'assests/images/C1.jpg', 'price': '\$5.00'},
+                    {'image': 'assests/images/C1.jpg', 'price': '\$5.50'},
+                  ]),
+                ],
               ),
             ),
           ],

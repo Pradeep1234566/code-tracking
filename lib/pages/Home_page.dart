@@ -1,12 +1,70 @@
+import 'package:flutter/material.dart';
 import 'package:coffee/pages/cart.dart';
 import 'package:coffee/pages/favourite.dart';
-import 'package:coffee/widgets/coffe.dart';
 import 'package:coffee/pages/notification.dart';
-import 'package:flutter/material.dart';
+import 'package:coffee/widgets/coffe.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
 
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+  final List<Widget> _pages = [
+    HomeScreen(), // Main home screen
+    Cart(cartItems: cartItems), // Replace with your Cart page
+    Favourite(), // Replace with your Favourite page
+    Notifi(), // Replace with your Notification page
+  ];
+
+  void _onTap(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _pages,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        currentIndex: _currentIndex,
+        onTap: _onTap,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shop),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: '',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// The main Home Screen (original content from your code)
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,14 +154,12 @@ class HomePage extends StatelessWidget {
             Expanded(
               child: ListView(
                 children: [
-                  // Cappuccino Section
                   buildCoffeeSection('Cappuccino', [
                     {'image': 'assests/images/C1.jpg', 'price': '\$4.00'},
                     {'image': 'assests/images/C2.jpg', 'price': '\$4.50'},
                     {'image': 'assests/images/C3.jpg', 'price': '\$5.00'},
                     {'image': 'assests/images/C4.jpg', 'price': '\$6.00'}
                   ]),
-                  // Latte Section
                   buildCoffeeSection('Latte', [
                     {'image': 'assests/images/L1.jpg', 'price': '\$4.50'},
                     {'image': 'assests/images/L2.jpg', 'price': '\$5.00'},
@@ -114,57 +170,6 @@ class HomePage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.black,
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.grey,
-        currentIndex: 0,
-        onTap: (index) {
-          switch (index) {
-            case 0:
-              // Home Page
-              break;
-            case 1:
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => Cart(cartItems: cartItems)),
-              );
-              break;
-            case 2:
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Favourite()),
-              );
-              break;
-            case 3:
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Notifi()),
-              );
-              break;
-          }
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shop),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: '',
-          ),
-        ],
       ),
     );
   }

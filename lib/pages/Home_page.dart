@@ -98,6 +98,7 @@ class HomePage extends StatelessWidget {
                     {'image': 'assests/images/C1.jpg', 'price': '\$4.00'},
                     {'image': 'assests/images/C2.jpg', 'price': '\$4.50'},
                     {'image': 'assests/images/C3.jpg', 'price': '\$5.00'},
+                    {'image': 'assests/images/C4.jpg', 'price': '\$6.00'}
                   ]),
                   // Latte Section
                   buildCoffeeSection('Latte', [

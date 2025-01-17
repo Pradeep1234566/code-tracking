@@ -41,9 +41,11 @@ Widget buildCoffeeSection(String title, List<Map<String, String>> items) {
                         item['price']!,
                         style: TextStyle(color: Colors.white),
                       ),
-                      Icon(
-                        Icons.add,
-                        color: Colors.white,
+                      IconButton(
+                        icon: Icon(Icons.add, color: Colors.white),
+                        onPressed: () {
+                          // Add your onPressed code here!
+                        },
                       ),
                     ],
                   ),

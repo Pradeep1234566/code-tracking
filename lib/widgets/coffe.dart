@@ -1,4 +1,11 @@
+import 'package:coffee/pages/cart.dart';
 import 'package:flutter/material.dart';
+
+List<Map<String, String>> cartItems = [];
+
+void addToCart(Map<String, String> item) {
+  cartItems.add(item);
+}
 
 Widget buildCoffeeSection(String title, List<Map<String, String>> items) {
   return Column(
@@ -12,7 +19,7 @@ Widget buildCoffeeSection(String title, List<Map<String, String>> items) {
         ),
       ),
       SizedBox(
-        height: 150,
+        height: 200,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: items.length,
@@ -44,7 +51,13 @@ Widget buildCoffeeSection(String title, List<Map<String, String>> items) {
                       IconButton(
                         icon: Icon(Icons.add, color: Colors.white),
                         onPressed: () {
-                          // Add your onPressed code here!
+                          addToCart(item);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Cart(cartItems: cartItems),
+                            ),
+                          );
                         },
                       ),
                     ],

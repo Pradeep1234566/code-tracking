@@ -1,4 +1,7 @@
+import 'package:coffee/pages/cart.dart';
+import 'package:coffee/pages/favourite.dart';
 import 'package:coffee/widgets/coffe.dart';
+import 'package:coffee/pages/notification.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -117,6 +120,33 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.black,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
+        currentIndex: 0,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              // Home Page
+              break;
+            case 1:
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Cart(cartItems: cartItems)),
+              );
+              break;
+            case 2:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Favourite()),
+              );
+              break;
+            case 3:
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Notifi()),
+              );
+              break;
+          }
+        },
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
